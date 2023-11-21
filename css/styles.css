@@ -1,0 +1,158 @@
+/*---------------- Globales ------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Bebas Neue', sans-serif;
+    font-family: 'Exo 2', sans-serif;
+    font-family: 'Nosifer', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/Islandia.jpg);
+    background-position: center;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+/*---------------- Header ------------*/
+
+.navbar {
+    height: 12%;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.268);
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+.logo {
+    width: 50px;
+    cursor: pointer;
+}
+
+nav {
+    flex: 1;
+    text-align: right;
+}
+
+nav ul li {
+    list-style: none;
+    display: inline-block;
+    margin-left: 60px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ffff;
+    font-size: 13px;
+    transition: all 0.3s ease;
+    font-size: 16px;
+}
+
+a:hover {
+    color: rgb(109, 145, 168);
+}
+
+/*---------------- Index ------------*/
+
+.row {
+    display: flex;
+    height: 88%;
+    align-items: center;
+    padding-left: 8%;
+}
+
+.col {
+    flex-basis: 50%;
+}
+
+h1 {
+    color: #ffff;
+    font-size: 100px;
+}
+
+p{
+    color: #ffff;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+button {
+    width: 180px;
+    color: #000;
+    font-size: 12px;
+    padding: 12px 0;
+    background: #ffff;
+    border: 0;
+    border-radius: 20px;
+    outline: none;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    color: white;
+    background-color: #000;
+}
+
+.card {
+    width: 200px;
+    height: 230px;
+    display: inline-block;
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    margin: 10px 15px;
+    background-position: center;
+    background-size: cover;
+    transition: transform 0.5s;
+}
+
+.card::before {
+    content:'';
+	position: absolute;
+    top: 15;
+	bottom: 15;
+	left: 15;
+	right: 15;
+	background-color: rgba(0,0,0,0.6);
+}
+
+.card1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/Historia2.jpg);
+}
+
+.card2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/Lugares_Turisticos2.jpg);
+}
+
+.card3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/Platillos2.jpg);
+}
+
+.card4 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../images/Bandera2.jpg);
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+h5 {
+    color: #ffff;
+    text-shadow: 0 0 5px #999;
+    position: relative;
+}
+
+.card p {
+    text-shadow: 0 0 15px #000;
+    font-size: 10px;
+    font-weight: 600;
+    position: relative;
+}
