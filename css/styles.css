@@ -24,7 +24,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     box-sizing: border-box;
-    max-width: 1320px;
+    /* max-width: 1320px;*/
 }
 
 /*---------------- Header ------------*/
@@ -87,7 +87,7 @@ label {
     display: flex;
     height: 88%;
     align-items: center;
-    padding-left: 8%;
+    padding-left: 10%;
 }
 
 .col {
