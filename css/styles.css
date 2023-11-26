@@ -7,26 +7,34 @@
     font-family: 'Exo 2', sans-serif;
     font-family: 'Nosifer', sans-serif;
     font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgba(0, 5, 154 , 0.5);
 }
 
 .container {
     width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(../images/Islandia.jpg);
-    background-position: center;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/Islandia.jpg);
+    background-position: center bottom;
     background-size: cover;
+    background-repeat: no-repeat;
     box-sizing: border-box;
+    max-width: 1320px;
 }
 
 /*---------------- Header ------------*/
 
 .navbar {
-    height: 12%;
     display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.268);
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 4%;
+    padding-right: 2.7%;
+    justify-content: space-between;
 }
 
 .logo {
@@ -36,28 +44,44 @@
 
 nav {
     flex: 1;
-    text-align: right;
+    text-align: left;
 }
 
 nav ul li {
-    list-style: none;
+    position: relative;
     display: inline-block;
-    margin-left: 60px;
+    margin-top: 10px;
+}
+
+nav ul {
+    float: right;
 }
 
 nav ul li a {
-    text-decoration: none;
     color: #ffff;
-    font-size: 13px;
     transition: all 0.3s ease;
-    font-size: 16px;
+    font-size: 18px;
+    padding: 20px;
+    display: block;
+    font-weight: 600;
 }
 
 a:hover {
     color: rgb(109, 145, 168);
 }
 
-/*---------------- Index ------------*/
+.menu-icono {
+    width: 25px;
+}
+
+label {
+    cursor: pointer;
+    display: none;
+}
+
+#menu {
+    display: none;
+}
 
 .row {
     display: flex;
@@ -73,6 +97,7 @@ a:hover {
 h1 {
     color: #ffff;
     font-size: 100px;
+    text-transform: uppercase;
 }
 
 p{
@@ -93,6 +118,8 @@ button {
     margin-top: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 button:hover {
@@ -148,6 +175,8 @@ h5 {
     color: #ffff;
     text-shadow: 0 0 5px #999;
     position: relative;
+    font-size: 25px;
+    margin-bottom: 10px;
 }
 
 .card p {
@@ -155,4 +184,131 @@ h5 {
     font-size: 10px;
     font-weight: 600;
     position: relative;
+}
+
+.contenedor {
+    margin: 0px auto;
+}
+
+/*---------------- Footer ------------*/
+
+footer {
+    padding: 70px 50px 30px 50px;
+}
+
+.enlaces {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.enlaces h3 {
+    font-size: 25px;
+}
+
+.enlace {
+    display: flex;
+}
+
+.enlace li {
+    list-style: none;
+}
+
+.enlace li a {
+    display: block;
+    margin: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.enlace li a:hover {
+    color: #0EAEF3;
+}
+
+/*---------------- Responsivo ------------*/
+
+@media(max-width: 991px) {
+
+    label {
+        display: initial;
+    }
+
+    .menu-icono {
+        display: initial;
+    }
+
+    .navbar {
+        padding-top: 15px;
+    }
+
+    nav {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        right: 0;
+        background-color: #323337;
+        display: none;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    #menu:checked ~ nav {
+        display: initial;
+    }
+
+    .container {
+        height: 0%;
+    }
+
+    .row {
+        margin-top: 75px;
+        text-align: center;
+        padding: 0px 75px;
+        flex-direction: column;
+    }
+
+    .row p{
+        padding: 20px 7.5px;
+        font-weight: 600;
+    }
+
+    .col {
+        margin: 0px 0px 20px 0px;
+    }
+
+    h5 {
+        text-transform: uppercase;
+    }
+
+    .card p {
+        font-size: 12.5px;
+    }
+
+    .footer {
+        padding: 30px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .enlaces {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .enlaces img {
+        margin: 10px 0px;
+    }
+
+    .enlace {
+        flex-direction: column;
+        padding: 25px 0px;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-align: center;
+    }
 }

@@ -7,26 +7,42 @@
     font-family: 'Exo 2', sans-serif;
     font-family: 'Nosifer', sans-serif;
     font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
 }
 
 .container {
-    width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(../images/Barcos.jpg);
-    background-position: center;
+    min-height: 100vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)), url(../images/Barcos.jpg);
+    /* background-position: center;
     background-size: cover;
-    box-sizing: border-box;
+    box-sizing: border-box; */
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.contenedor {
+    padding: 60px 0;
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    max-width: 1100px;
+}
+
+.contenedor-textos p {
+    color: #000;
 }
 
 /*---------------- Header ------------*/
 
 .navbar {
-    height: 12%;
     display: flex;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.268);
-    padding-left: 8%;
-    padding-right: 8%;
+    padding-left: 4%;
+    padding-right: 2.7%;
+    justify-content: space-between;
 }
 
 .logo {
@@ -36,34 +52,51 @@
 
 nav {
     flex: 1;
-    text-align: right;
+    text-align: left;
 }
 
 nav ul li {
-    list-style: none;
+    position: relative;
     display: inline-block;
-    margin-left: 60px;
+    margin-top: 10px;
+}
+
+nav ul {
+    float: right;
 }
 
 nav ul li a {
-    text-decoration: none;
     color: #ffff;
-    font-size: 13px;
     transition: all 0.3s ease;
-    font-size: 16px;
+    font-size: 18px;
+    padding: 20px;
+    display: block;
+    font-weight: 600;
 }
 
 a:hover {
     color: rgb(109, 145, 168);
 }
 
-/*---------------- Historia ------------*/
+.menu-icono {
+    width: 25px;
+}
+
+label {
+    cursor: pointer;
+    display: none;
+}
+
+#menu {
+    display: none;
+}
 
 .row {
     display: flex;
     height: 88%;
     align-items: center;
     padding-left: 8%;
+    margin-top: 150px;
 }
 
 .col {
@@ -73,6 +106,7 @@ a:hover {
 h1 {
     color: #ffff;
     font-size: 80px;
+    text-transform: uppercase;
 }
 
 .row p{
@@ -93,6 +127,8 @@ button {
     margin-top: 30px;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
 button:hover {
@@ -106,17 +142,7 @@ button:hover {
     width: 100%;
 }
 
-.contenedor {
-    padding: 60px 0;
-    width: 90%;
-    margin: auto;
-    overflow: hidden;
-    max-width: 1000px;
-}
-
-.contenedor-textos p {
-    color: #000;
-}
+/*---------------- Historia ------------*/
 
 .titulo {
     color: #642A73;
@@ -285,4 +311,115 @@ button:hover {
     font-weight: 300;
     text-align: justify;
     margin-right: 15px;
+}
+
+/*---------------- Footer ------------*/
+
+footer {
+    padding: 0px;
+    background-color: #000;
+}
+
+.enlaces {
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.enlaces h3 {
+    font-size: 25px;
+}
+
+.enlace {
+    display: flex;
+}
+
+.enlace li {
+    list-style: none;
+}
+
+.enlace li a {
+    display: block;
+    margin: 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.enlace li a:hover {
+    color: #0EAEF3;
+}
+
+/*---------------- Responsivo ------------*/
+
+@media(max-width: 991px) {
+
+    label {
+        display: initial;
+    }
+
+    .menu-icono {
+        display: initial;
+    }
+
+    nav {
+        position: absolute;
+        top: 10%;
+        left: 0;
+        right: 0;
+        background-color: #323337;
+        display: none;
+    }
+
+    nav ul li {
+        width: 100%;
+    }
+
+    #menu:checked ~ nav {
+        display: initial;
+    }
+
+    .container {
+        height: 0vh;
+    }
+
+    .row {
+        margin-top: 0;
+        text-align: center;
+        padding: 0px 75px;
+    }
+
+    .row p{
+        padding: 20px 0px;
+        font-weight: 600;
+    }
+
+    .col h1 {
+        font-size: 45px;
+    }
+
+    .footer {
+        padding: 30px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .enlaces {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .enlaces img {
+        margin: 10px 0px;
+    }
+
+    .enlace {
+        flex-direction: column;
+        padding: 25px 0px;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-align: center;
+    }
 }
