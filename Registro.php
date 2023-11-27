@@ -3,19 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- Aqui se pueden observar los links de archivos css y librearias que usamos de páginas exteriores -->
-
+    <!-- Conexión con hoja de estilos, bootstrap y fuentes de google -->
     <link rel="stylesheet" href="css/registro.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <title>Registro</title>
-
-    <!-- Aqui se pueden obervar los estilos locales -->
-
+    <title>Platillos Tipicos</title>
+    <!-- Configuración de estilos de la página y su fuente -->
     <style>
         * {
             margin: 0;
@@ -52,6 +48,7 @@
     <title>Registro</title>
 </head>
 <?php
+//Creación de variables y conexión a la base de datos
     $servidor = "localhost";
     $usuario = "root";
     $clave = "";
@@ -60,11 +57,10 @@
     ?>
 
 <body>
+    <!--  Div contenedor donde se le da estilo y tamaño a la página -->
 <div class="container">
-
-    <!-- En esta sección abarca el header y menu principal de la página -->
-
 <header class="header">
+    <!-- Menu contenedor, contiene el navbar para la redirección al resto de páginas del sitio -->
         <div class="menu contenedor">
                     <a href="Index.html"><img src="./images/logo.png" class="logo" /></a>
                     <input type="checkbox" id="menu" />
@@ -83,20 +79,25 @@
                     </nav>
         </div>
         <?php
+        //Método post en caso de pulsar el submit registrarse
 if(isset($_POST['registrarse']))
 {
 
+    //comprobación de elección de camisa, para asignar "NINGUNA" o la talla, en caso de desplegarse el campo
     if($_POST['camisa'] == "NO")
     {
-        $talla = "Ninguna";
+        $talla = "NINGUNA";
     }
     else
     {
         $talla=$_POST['talla'];
     }
+    //sentencia de INSERT para el query
     $insertar="INSERT INTO datos (nombre,apellido,edad,genero,telefono,ciudad,transporte,camisa,talla,comentarios) 
     values ('$_POST[nombre]','$_POST[apellido]','$_POST[edad]','$_POST[genero]','$_POST[telefono]','$_POST[ciudad]','$_POST[transporte]','$_POST[camisa]','$talla','$_POST[comentarios]')";
+      //ejecución del query Insert
       $query = mysqli_query($conexion,$insertar);
+      //comprueba si el query se ejecutó correctamente y despliega alerta de exito
       if($query)
       {
         ?>
@@ -108,6 +109,7 @@ if(isset($_POST['registrarse']))
       }
       else
       {
+         //si no se ejecuto correctamente, despliega error de registro
         ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Error en el registro!</strong> Intente registrarse nuevamente
@@ -117,17 +119,21 @@ if(isset($_POST['registrarse']))
       }
 }
 
+//método post para Iniciar sesión
 if(isset($_POST['iniciarsesion']))
 {
-
+    //definición de varuiblaes de usuario y contraseña
    $user = $_POST['user'];
    $pass = $_POST['password'];
+   //comparación con valores estáticos para usuario administrador
    if($user=="admin" && $pass=="admin147")
    {
+    //redirección a página administrador
     header('Location: Admin.php');
    }
    else
    {
+    //mensaje de error de datos en caso de equivocarse
     ?>
         <div class="alert alert-warning alert-dismissible fade show" role="alert">
             <strong>Error en inicio de sesión</strong> Verifique sus datos
@@ -138,11 +144,10 @@ if(isset($_POST['iniciarsesion']))
 }
 ?>
 </header>
-
-    <!-- En esta sección abarca el contenido principal de la página -->
-
+<!-- Definición de div de filas y columnas, y estrcutura de tablas con los input correspondientes -->
     <div class="row">
         <div class="col">
+            <!-- form para registro -->
             <form action="Registro.php" method="post" name="registrarse">
             <table class="table table-striped">
                 <tr>
@@ -154,6 +159,8 @@ if(isset($_POST['iniciarsesion']))
                     <td>Edad</td>
                 </tr>
                 <tr>
+                    <!-- Inputs de texto con patron para solo insertar letras y espacios, input de numero minimo 18 y maximo 60 para la edad -->
+                    <!-- input text tienen la funcion mayus cada que pulsan una letra, para pasarla a mayuscula -->
                     <td><input type="text" pattern="[a-zA-Z\s]*" class="form-control" name="nombre" id="nombre" placeholder="Ingrese su nombre(s)" required onkeyup="mayus(this);"></td>
                     <td><input type="text" pattern="[a-zA-Z\s]*" class="form-control" name="apellido" id="apellido" placeholder="Ingrese su apellido(s)" required onkeyup="mayus(this);"></td>
                     <td><input type="number" class="form-control" min="18" max="60" name="edad" id="edad" placeholder="Ingrese su edad" required onkeyup="mayus(this);"></td>
@@ -164,6 +171,7 @@ if(isset($_POST['iniciarsesion']))
                     <td>Celular</td>
                 </tr>
                 <tr>
+                    <!-- Selects para genero, ciudad y input text de 10 caracteres para número de telefono y solo permite numeros -->
                     <td><select name="genero" id="genero"  class="form-control" required>
                         <option value="HOMBRE">HOMBRE</option>
                         <option value="MUJER">MUJER</option>
@@ -177,7 +185,7 @@ if(isset($_POST['iniciarsesion']))
                         <option value="ENSENADA">ENSENADA</option>
                         <option value="MEXICALI">MEXICALI</option>
                     </select></td>
-                    <td><input type="text" class="form-control" maxlength="10" name="telefono" id="telefono" placeholder="Ingrese su celular (10 dígitos)" required></td>
+                    <td><input type="text" class="form-control" maxlength="10" name="telefono" pattern="^[0-9]+" id="telefono" placeholder="Ingrese su celular (10 dígitos)" required></td>
                 </tr>
                 <tr>
                     <td>Transporte</td>
@@ -185,10 +193,13 @@ if(isset($_POST['iniciarsesion']))
                     <td>Talla</td>
                 </tr>
                 <tr>
+                    <!-- selects de transporte, camisa y talla -->
                 <td><select name="transporte" id="transporte"  class="form-control" required> 
                         <option value="NO">NO</option>
                         <option value="SI">SI</option>
                     </select></td>
+                    <!-- El select de camisa llama a un método llamado mostrartalla, que envía el valor del select para comprobar si desplegar
+                o no el select de talla -->
                     <td><select name="camisa" id="camisa"  class="form-control" required onchange="mostrartalla(this.value);">
                         <option value="NO">NO</option>
                         <option value="SI">SI</option>
@@ -201,9 +212,11 @@ if(isset($_POST['iniciarsesion']))
                     </select></td>
                 </tr>
                 <tr>
+                    <!-- text área de comentarios -->
                     <td colspan="3" style="text-align:center">¿Desea agregar comentarios?</td>
                 </tr>
                 <tr>
+                    <!-- textarea tiene la funcion mayus cada que pulsan una letra, para pasarla a mayuscula -->
                     <td colspan="3" style="text-align:center"><textarea name="comentarios" class="form-control" id="comentarios" cols="100" rows="3" required onkeyup="mayus(this);"></textarea></td>
                 </tr>
                 <tr>
@@ -216,8 +229,8 @@ if(isset($_POST['iniciarsesion']))
 </div>
 </body>
 
-<!-- Modal -->
 
+<!-- Modal de login -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -225,6 +238,7 @@ if(isset($_POST['iniciarsesion']))
         <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión Administrador</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
+      <!-- Form para inicio de sesión -->
       <form action="Registro.php" method="post" name="iniciarsesion">
       <div class="modal-body">    
         <div class="container-fluid">
@@ -246,6 +260,7 @@ if(isset($_POST['iniciarsesion']))
 </div>
 
 <script>
+    // funcion mostrar talla recibe el valor del select camisa y despliega u oculta dependiendo el valor
     function mostrartalla(camisa){
         if(camisa == "SI")
         {
@@ -259,10 +274,12 @@ if(isset($_POST['iniciarsesion']))
 
        
     }
+
+    //funcion mayus transforma todas las letras a mayuscula
     function mayus(e) {
         e.value = e.value.toUpperCase();
     }
 </script>
-
+<!-- enlace a JS de boostrap -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </html>
