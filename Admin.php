@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Aqui se pueden observar los links de archivos css y librearias que usamos de páginas exteriores -->
+
     <link rel="stylesheet" href="css/registro.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,29 +14,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <title>Registro</title>
 
+    <!-- Aqui se pueden obervar los estilos locales -->
+
     <style>
-   * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Bebas Neue', sans-serif;
-    font-family: 'Exo 2', sans-serif;
-    font-family: 'Nosifer', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    text-decoration: none;
-    list-style: none;
-    box-sizing: border-box;
-} 
-a{
-    text-decoration: none;
-    list-style: none;
-}  
-table{
-    background-color: rgba(100, 100, 100, 0.4);
-}
-td{
-    color:white;
-}
-p{
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            font-family: 'Exo 2', sans-serif;
+            font-family: 'Nosifer', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            text-decoration: none;
+            list-style: none;
+            box-sizing: border-box;
+        } 
+        a{
+            text-decoration: none;
+            list-style: none;
+        }  
+        table{
+            background-color: rgba(100, 100, 100, 0.4);
+        }
+        td{
+            color:white;
+        }
+        p{
             font-family: 'Montserrat', sans-serif;
         }
         table,.col,td,input{
@@ -41,7 +46,7 @@ p{
             font-family: 'Josefin Sans', sans-serif;
             font-family: 'Montserrat', sans-serif;
         }
-</style>
+    </style>
 </head>
 <?php
     $servidor = "localhost";
@@ -53,6 +58,9 @@ p{
 
 <body>
 <div class="container">
+
+<!-- En esta sección abarca el header y menu principal de la página -->
+
 <header class="header">
         <div class="menu contenedor">
                     <a href="Index.html"><img src="./images/logo.png" class="logo" /></a>
@@ -75,6 +83,9 @@ p{
 
 ?>
 </header>
+
+    <!-- En esta sección abarca el contenido principal de la página -->
+
     <div class="row">
         <div class="col">
             <h1 style="color:white; font-weight:bold">Usuarios Registrados</h1>

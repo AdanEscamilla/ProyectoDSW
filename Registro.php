@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Aqui se pueden observar los links de archivos css y librearias que usamos de páginas exteriores -->
+
     <link rel="stylesheet" href="css/registro.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@500&family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <title>Platillos Tipicos</title>
+    <title>Registro</title>
+
+    <!-- Aqui se pueden obervar los estilos locales -->
 
     <style>
         * {
@@ -56,6 +61,9 @@
 
 <body>
 <div class="container">
+
+    <!-- En esta sección abarca el header y menu principal de la página -->
+
 <header class="header">
         <div class="menu contenedor">
                     <a href="Index.html"><img src="./images/logo.png" class="logo" /></a>
@@ -130,6 +138,9 @@ if(isset($_POST['iniciarsesion']))
 }
 ?>
 </header>
+
+    <!-- En esta sección abarca el contenido principal de la página -->
+
     <div class="row">
         <div class="col">
             <form action="Registro.php" method="post" name="registrarse">
@@ -205,8 +216,8 @@ if(isset($_POST['iniciarsesion']))
 </div>
 </body>
 
-
 <!-- Modal -->
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
